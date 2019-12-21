@@ -1,0 +1,16 @@
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\IGrow.DBUtility.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\IGrow.DBUtility.pdb
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\IGrow.Code.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\NPOI.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\log4net.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\zxing.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\NPOI.OOXML.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\NPOI.OpenXml4Net.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\bin\Debug\IGrow.Code.pdb
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\obj\Debug\IGrow.DBUtility.csprojAssemblyReference.cache
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\obj\Debug\IGrow.DBUtility.csproj.CopyComplete
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\obj\Debug\IGrow.DBUtility.dll
+D:\workspace\Igrow\Igrow\IGrow.DBUtility\obj\Debug\IGrow.DBUtility.pdb

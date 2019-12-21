@@ -1,0 +1,16 @@
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\IGrow.Entity.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\IGrow.Entity.pdb
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\IGrow.Code.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\NPOI.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\log4net.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\zxing.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\NPOI.OOXML.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\NPOI.OpenXml4Net.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\bin\Debug\IGrow.Code.pdb
+D:\workspace\Igrow\Igrow\IGrow.Entity\obj\Debug\IGrow.Entity.csprojAssemblyReference.cache
+D:\workspace\Igrow\Igrow\IGrow.Entity\obj\Debug\IGrow.Entity.csproj.CopyComplete
+D:\workspace\Igrow\Igrow\IGrow.Entity\obj\Debug\IGrow.Entity.dll
+D:\workspace\Igrow\Igrow\IGrow.Entity\obj\Debug\IGrow.Entity.pdb

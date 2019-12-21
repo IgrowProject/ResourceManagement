@@ -1,0 +1,185 @@
+﻿@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<script>
+    var keyValue = $.request("keyValue"); 
+    $(function () { 
+        if (!!keyValue) {
+            $.ajax({
+                url: "/CommodityManage/CommodityInfo//GetFormJson",
+                data: { keyValue: keyValue },
+                dataType: "json",
+                async: false,
+                success: function (data) {
+                    $("#form1").formSerialize(data); 
+                }
+            });
+        }
+    });
+ 
+    function submitForm() {
+        if (!$('#form1').formValid()) {
+            return false;
+        }
+        $.submitForm({
+            url: "/CommodityManage/CommodityInfo/SubmitForm?keyValue=" + keyValue,
+            param: $("#form1").formSerialize(),
+            success: function () {
+                $.currentWindow().$('#dg').datagrid('reload');
+            }
+        })
+    }
+</script>
+<form id="form1">
+    <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">基本信息</a></li>
+            @*<li ><a href="#">扩展信息</a></li>*@
+        </ul>
+        <div style="padding-top: 20px; margin-right: 30px;">
+            <table class="form">
+                <tr>
+                    <th class="formTitle">商品代码</th>
+                    <td class="formValue">
+                        <input id="Code" name="Code" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">商品附加属性</th>
+                    <td class="formValue">
+                        <select id="ItemAddAttribute" name="ItemAddAttribute" class="form-control">
+                            <option value="0">普通商品</option>
+                            <option value="1">唯一码商品</option>
+                            <option value="2">批次商品</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th class="formTitle">商品名称</th>
+                    <td class="formValue">
+                        <input id="Name" name="Name" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">标准售价</th>
+                    <td class="formValue">
+                        <input id="SalesPrice" name="SalesPrice" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">标准进价</th>
+                    <td class="formValue">
+                        <input id="PurchasePrice" name="PurchasePrice" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">代理售价</th>
+                    <td class="formValue">
+                        <input id="AgentPrice" name="AgentPrice" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">成本价</th>
+                    <td class="formValue">
+                        <input id="CostPrice" name="CostPrice" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">商品简称</th>
+                    <td class="formValue">
+                        <input id="SimpleName" name="SimpleName" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">重量</th>
+                    <td class="formValue">
+                        <input id="Weight" name="Weight" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">是否组合</th>
+                    <td class="formValue">
+                        <select id="Combine" name="Combine" class="form-control">
+                            <option value="false">否</option>
+                            <option value="true">是</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">分类代码</th>
+                    <td class="formValue">
+                        <input id="CategoryCode" name="CategoryCode" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">是否已停用</th>
+                    <td class="formValue">
+                        <select id="Del" name="Del" class="form-control">
+                            <option value="false">否</option>
+                            <option value="true">是</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">分类名称</th>
+                    <td class="formValue">
+                        <input id="CategoryName" name="CategoryName" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">供应商代码</th>
+                    <td class="formValue">
+                        <input id="SupplierCode" name="SupplierCode" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">宽</th>
+                    <td class="formValue">
+                        <input id="Width" name="Width" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">高</th>
+                    <td class="formValue">
+                        <input id="Height" name="Height" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">长</th>
+                    <td class="formValue">
+                        <input id="Length" name="Length" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">体积</th>
+                    <td class="formValue">
+                        <input id="Volume" name="Volume" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">打包积分</th>
+                    <td class="formValue">
+                        <input id="PackagePoint" name="PackagePoint" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">销售积分</th>
+                    <td class="formValue">
+                        <input id="SalesPoint" name="SalesPoint" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">保质期</th>
+                    <td class="formValue">
+                        <input id="ShelfLife" name="ShelfLife" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">预警天数</th>
+                    <td class="formValue">
+                        <input id="WarningDays" name="WarningDays" type="text" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" valign="top" style="padding-top: 5px;">
+                        备注
+                    </th>
+                    <td class="formValue" colspan="3">
+                        <textarea id="Note" name="Note" class="form-control" style="height: 60px;"></textarea>
+                    </td>
+                </tr>
+                @*<tr>
+                    <th class="formTitle">修改时间</th>
+                    <td class="formValue">
+                        <input id="ModifyDate" name="ModifyDate" type="text" class="form-control" />
+                    </td>
+                    <th class="formTitle">创建时间</th>
+                    <td class="formValue">
+                        <input id="IGrowID" name="IGrowID" type="text" class="form-control" />
+                    </td>
+                </tr>*@
+
+            </table>
+        </div>
+    </div>
+</form>

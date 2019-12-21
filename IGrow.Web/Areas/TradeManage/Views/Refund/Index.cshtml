@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script>
+    $(function () {
+        gridList();
+    })
+    function gridList() {
+        var queryJson = {
+            ComCode: $("#txt_Code").val(),
+            ComName: $('#txt_Name').val(),
+            TstartTime: $("#TstartTime").val(),
+            TendTime: $("#TendTime").val()
+        }
+        $('#dg').datagrid({
+            url: '/TradeManage/Refund/GetGridJson',
+            toolbar: '#toolbar',
+            hideColumn: "IGrowID",
+            autoRowHeight: false,
+            rownumbers: true,//行号
+            striped: true,//交替显示背景
+            nowrap: true,
+            singleSelect: true,
+            method: 'get',
+            pagination: true,
+            pageSize: 20,
+            queryParams: {
+                queryJson: JSON.stringify(queryJson)
+            },
+            columns: [[ 
+                 { field: 'IGrowID', hidden: true },
+                { field: 'OnRefund00', title: '退款编号', width: 120, align: 'center' },  
+                { field: 'OnRefund01', title: '订单编号', width: 100, align: 'center' },                              
+                { field: 'OnRefund02', title: '支付宝交易号', width: 100, align: 'center' },
+                { field: 'OnRefund03', title: '订单付款时间', width: 100, align: 'center' },
+                { field: 'OnRefund04', title: '商品编码', width: 100, align: 'center' },
+                { field: 'OnRefund05', title: '退款完结时间', width: 100, align: 'center' },
+                { field: 'OnRefund06', title: '买家会员名称', width: 100, align: 'center' },
+                { field: 'OnRefund07', title: '买家实际支付金额', width: 100, align: 'center' },
+                { field: 'OnRefund08', title: '宝贝标题', width: 100, align: 'center' },
+                { field: 'OnRefund09', title: '买家退款金额', width: 100, align: 'center' },
+                { field: 'OnRefund10', title: '手工退款/系统退款', width: 100, align: 'center' },
+                { field: 'OnRefund11', title: '是否需要退货', width: 100, align: 'center' },
+                { field: 'OnRefund12', title: '退款的申请时间', width: 100, align: 'center' },
+                { field: 'OnRefund13', title: '超时时间', width: 100, align: 'center' },
+                { field: 'OnRefund14', title: '退款状态', width: 100, align: 'center' },
+                { field: 'OnRefund15', title: '货物状态', width: 100, align: 'center' },
+                { field: 'OnRefund16', title: '退货物流信息 ', width: 100, align: 'center' },
+                { field: 'OnRefund17', title: '发货物流信息', width: 100, align: 'center' },
+                { field: 'OnRefund18', title: '客服介入状态 ', width: 100, align: 'center' },
+                { field: 'OnRefund19', title: '卖家真实姓名', width: 100, align: 'center' },
+                { field: 'OnRefund20', title: '卖家退货地址', width: 100, align: 'center' },
+                { field: 'OnRefund21', title: '卖家邮编 ', width: 100, align: 'center' },
+                { field: 'OnRefund22', title: '卖家电话 ', width: 100, align: 'center' },
+                { field: 'OnRefund23', title: '卖家手机', width: 100, align: 'center' },
+                { field: 'OnRefund24', title: '退货物流单号 ', width: 100, align: 'center' },
+                { field: 'OnRefund25', title: '退货物流公司', width: 100, align: 'center' },
+                { field: 'OnRefund26', title: '买家退款原因', width: 100, align: 'center' },
+                { field: 'OnRefund27', title: '买家退款说明', width: 100, align: 'center' },
+                { field: 'OnRefund28', title: '买家退货时间', width: 100, align: 'center' },
+                { field: 'OnRefund29', title: '责任方', width: 100, align: 'center' },
+                { field: 'OnRefund30', title: '售中或售后', width: 100, align: 'center' },
+                { field: 'OnRefund31', title: '商家备注', width: 100, align: 'center' },
+                { field: 'OnRefund32', title: '完结时间', width: 100, align: 'center' },
+                { field: 'OnRefund33', title: '部分退款/全部退款', width: 100, align: 'center' },
+                { field: 'OnRefund34', title: '审核操作人', width: 100, align: 'center' },
+                { field: 'OnRefund35', title: '举证超时', width: 100, align: 'center' },
+                { field: 'OnRefund36', title: '是否零秒响应', width: 100, align: 'center' },
+                { field: 'OnRefund37', title: '退款操作人', width: 100, align: 'center' },
+                { field: 'OnRefund38', title: '退款原因标签', width: 100, align: 'center' } 
+            ]]
+        });
+
+        $("#btn_search").click(function () {
+            var queryJson = {
+                ComCode: $("#txt_Code").val(),
+                ComName: $('#txt_Name').val(),
+                TstartTime: $("#TstartTime").val(),
+                TendTime: $("#TendTime").val() 
+            }
+            $('#dg').datagrid('load', { queryJson: JSON.stringify(queryJson) });
+        });
+    }
+
+
+    function btn_input() {
+        $.modalOpen({
+            id: "Form",
+            title: "导入数据",
+            url: "/Api/ExcelManage/Import?table=Refund",
+            width: "700px",
+            height: "520px",
+            callBack: function (iframeId) {
+                top.frames[iframeId].submitForm();
+            }
+        });
+    }
+</script>
+
+<div class="gridPanel" style="height:100%;">
+    <div id="toolbar" style="padding:2px 5px;">
+        <div class="dcui-btn-area">
+            <a href="#" id="NF-input" authorize="yes" class="dcui-btn dcui-btn-green" iconCls="icon-add" plain="true" onclick="btn_input()"><i class="fa fa-plus"></i>导入数据</a>
+        </div>
+        <script>$('#toolbar').authorizeButton()</script>
+        <div class="dcui-search-area">
+            退款完结开始：
+            <input id="TstartTime" class="easyui-datebox" labelPosition="top" style="width: 120px;padding-left:15px;">
+            退款完结结束：
+            <input id="TendTime" class="easyui-datebox" labelPosition="top" style="width: 120px;padding-left:15px;">
+            订单编号:
+            <input class="easyui-textbox" style="width:110px" id="txt_Code" placeholder="请输入要查询订单编号">
+            退款编号：
+            <input class="easyui-textbox" style="width:110px" id="txt_Name" placeholder="请输入要查询商家编码">
+            <a href="#" class="easyui-linkbutton" iconCls="icon-search" id="btn_search">查询</a>
+        </div>
+    </div>
+
+    <table id="dg" class="easyui-datagrid" style="width:100%;min-height:600px;height:100%;"></table>
+</div>

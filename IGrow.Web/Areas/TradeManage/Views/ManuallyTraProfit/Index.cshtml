@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script>
+    $(function () {
+        gridList();
+    })
+    function gridList() {
+        $('#dg').datagrid({
+            url: '/SystemManage/ManuallyTraProfit/GetGridJson',
+            toolbar: '#toolbar',
+            hideColumn: "IGrowID",
+            autoRowHeight: false,
+            nowrap: true,
+            singleSelect: true,
+            rownumbers: true,//行号
+            striped: true,//交替显示背景
+            method: 'get',
+            pagination: true,
+            pageSize: 20,
+            queryParams: {
+                keyword: "",
+            },
+            columns: [[
+                { field: 'IGrowID', hidden: true },
+                { field: 'F_Name', title: '商品', width: 80, align: 'center' },
+                { field: 'OnProfit01', title: 'sku收入', width: 80, align: 'center' },
+                { field: 'OnProfit02', title: 'sku成本', width: 80, align: 'center' },
+                { field: 'OnProfit03', title: 'sku毛利率', width: 80, align: 'center' },
+                { field: 'OnProfit04', title: 'spu收入', width: 80, align: 'center' },
+                { field: 'OnProfit05', title: 'spu成本', width: 80, align: 'center' },
+                { field: 'OnProfit06', title: 'spu毛利率', width: 80, align: 'center' },
+                { field: 'OnProfit07', title: '渠道收入', width: 80, align: 'center' },
+                { field: 'OnProfit08', title: '渠道成本', width: 80, align: 'center' },
+                { field: 'OnProfit09', title: '渠道毛利率', width: 80, align: 'center' },
+                { field: 'Description', title: '备注', width: 200, align: 'center' }
+            ]]
+        });
+
+        $("#btn_search").click(function () {
+            var queryJson = {
+                keyword: $("#txt_keyword").val()
+            }
+            $('#dg').datagrid('load', queryJson);
+        });
+    }
+     
+</script>
+
+<div class="gridPanel" style="height:100%;">
+    <div id="toolbar" style="padding:5px 15px;">
+         
+        <div class="dcui-search-area">
+            开始时间：
+            <input class="easyui-datebox" labelPosition="top" style="width:100px;">
+            &nbsp;&nbsp;结束时间：
+            <input class="easyui-datebox" labelPosition="top" style="width:100px;">
+            &nbsp;&nbsp;关键字: <input class="easyui-textbox" style="width:110px" id="txt_keyword" placeholder="请输入要查询关键字">
+            <a href="#" class="easyui-linkbutton" iconCls="icon-search" id="btn_search">查询</a>
+        </div>
+    </div>
+
+    <table id="dg" class="easyui-datagrid" style="width:100%;min-height:600px;height:100%;"></table>
+</div>

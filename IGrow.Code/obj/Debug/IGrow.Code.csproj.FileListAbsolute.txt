@@ -1,0 +1,6 @@
+D:\workspace\Igrow\Igrow\IGrow.Code\bin\Debug\IGrow.Code.dll
+D:\workspace\Igrow\Igrow\IGrow.Code\bin\Debug\IGrow.Code.pdb
+D:\workspace\Igrow\Igrow\IGrow.Code\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\Igrow\Igrow\IGrow.Code\obj\Debug\IGrow.Code.csproj.CopyComplete
+D:\workspace\Igrow\Igrow\IGrow.Code\obj\Debug\IGrow.Code.dll
+D:\workspace\Igrow\Igrow\IGrow.Code\obj\Debug\IGrow.Code.pdb

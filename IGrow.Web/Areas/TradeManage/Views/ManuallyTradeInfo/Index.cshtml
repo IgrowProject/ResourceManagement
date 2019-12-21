@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script>
+    $(function () {
+        gridList();
+    })
+    function gridList() {
+        var queryJson = {
+            ComCode: $("#txt_Code").val(),
+            ComName: $('#txt_Name').val(),
+            TstartTime: $("#TstartTime").val(),
+            TendTime: $("#TendTime").val()
+        }
+        $('#dg').datagrid({
+            url: '/TradeManage/ManuallyTradeInfo/GetGridJson',
+            toolbar: '#toolbar',
+            hideColumn: "IGrowID",
+            autoRowHeight: false,
+            rownumbers: true,//行号
+            striped: true,//交替显示背景
+            nowrap: true,
+            singleSelect: true,
+            method: 'get',
+            pagination: true,
+            pageSize: 20,
+            queryParams: {
+                queryJson: JSON.stringify(queryJson)
+            },
+            columns: [[ 
+                 { field: 'IGrowID', hidden: true },
+                { field: 'OD01', title: '订单编号', width: 120, align: 'center' }, 
+                { field: 'OD02', title: '买家会员名', width: 100, align: 'center' },                
+                { field: 'OD03', title: '买家支付宝账号', width: 100, align: 'center' },
+                { field: 'OD04', title: '支付单号', width: 100, align: 'center' },
+                { field: 'OD05', title: '支付详情', width: 100, align: 'center' },
+                { field: 'OD06', title: '买家应付货款', width: 100, align: 'center' },
+                { field: 'OD07', title: '买家应付邮费', width: 100, align: 'center' },
+                { field: 'OD08', title: '买家支付积分', width: 100, align: 'center' },
+                { field: 'OD09', title: '总金额', width: 100, align: 'center' },
+                { field: 'OD10', title: '返点积分', width: 100, align: 'center' },
+                { field: 'OD11', title: '买家实际支付金额', width: 100, align: 'center' },
+                { field: 'OD12', title: '买家实际支付积分', width: 100, align: 'center' },
+                { field: 'OD13', title: '订单状态', width: 100, align: 'center' },
+                { field: 'OD14', title: '买家留言', width: 100, align: 'center' },
+                { field: 'OD15', title: '收货人姓名', width: 100, align: 'center' },
+                { field: 'OD16', title: '收货地址 ', width: 100, align: 'center' },
+                { field: 'OD17', title: '运送方式', width: 100, align: 'center' },
+                { field: 'OD18', title: '联系电话 ', width: 100, align: 'center' },
+                { field: 'OD19', title: '联系手机', width: 100, align: 'center' },
+                { field: 'OD20', title: '订单创建时间', width: 100, align: 'center' },
+                { field: 'OD21', title: '订单付款时间 ', width: 100, align: 'center' },
+                { field: 'OD22', title: '宝贝标题 ', width: 100, align: 'center' },
+                { field: 'OD23', title: '宝贝种类', width: 100, align: 'center' },
+                { field: 'OD24', title: '物流单号 ', width: 100, align: 'center' },
+                { field: 'OD25', title: '物流公司', width: 100, align: 'center' },
+                { field: 'OD26', title: '订单备注', width: 100, align: 'center' },
+                { field: 'OD27', title: '宝贝总数量', width: 100, align: 'center' },
+                { field: 'OD28', title: '店铺Id', width: 100, align: 'center' },
+                { field: 'OD29', title: '店铺名称', width: 100, align: 'center' },
+                { field: 'OD30', title: '订单关闭原因', width: 100, align: 'center' },
+                { field: 'OD31', title: '卖家服务费', width: 100, align: 'center' },
+                { field: 'OD32', title: '买家服务费', width: 100, align: 'center' },
+                { field: 'OD33', title: '发票抬头', width: 100, align: 'center' },
+                { field: 'OD34', title: '是否手机订单', width: 100, align: 'center' },
+                { field: 'OD35', title: '分阶段订单信息', width: 100, align: 'center' },
+                { field: 'OD36', title: '特权订金订单id', width: 100, align: 'center' },
+                { field: 'OD37', title: '是否上传合同照片', width: 100, align: 'center' },
+                { field: 'OD38', title: '是否上传小票', width: 100, align: 'center' },
+                { field: 'OD39', title: '是否代付', width: 100, align: 'center' },
+                { field: 'OD40', title: '定金排名', width: 100, align: 'center' },
+                { field: 'OD41', title: '修改后的sku', width: 100, align: 'center' },
+                { field: 'OD42', title: '修改后的收货地址', width: 100, align: 'center' },
+                { field: 'OD43', title: '异常信息', width: 100, align: 'center' },
+                { field: 'OD44', title: '天猫卡券抵扣', width: 100, align: 'center' },
+                { field: 'OD45', title: '集分宝抵扣', width: 100, align: 'center' },
+                { field: 'OD46', title: '是否是O2O交易', width: 100, align: 'center' },
+                { field: 'OD47', title: 'O2O交易类型', width: 100, align: 'center' },
+                { field: 'OD48', title: 'O2O店铺id', width: 100, align: 'center' },
+                { field: 'OD49', title: 'O2O店铺名称', width: 100, align: 'center' },
+                { field: 'OD50', title: 'O2O导购员id', width: 100, align: 'center' },
+                { field: 'OD51', title: 'O2O导购员姓名', width: 100, align: 'center' },
+                { field: 'OD52', title: 'O2O提货类型', width: 100, align: 'center' },
+                { field: 'OD53', title: 'O2O外部订单id', width: 100, align: 'center' },
+                { field: 'OD54', title: '新零售交易类型', width: 100, align: 'center' },
+                { field: 'OD55', title: '新零售导购门店名称', width: 100, align: 'center' },
+                { field: 'OD56', title: '新零售导购门店id', width: 100, align: 'center' },
+                { field: 'OD57', title: '新零售发货门店名称', width: 100, align: 'center' },
+                { field: 'OD58', title: '新零售发货门店id', width: 100, align: 'center' },
+                { field: 'OD59', title: '退款金额', width: 100, align: 'center' },
+                { field: 'OD60', title: '预约门店', width: 100, align: 'center' },
+                { field: 'OD61', title: '是否村淘订单', width: 100, align: 'center' },
+                { field: 'OD62', title: '确认收货时间', width: 100, align: 'center' },
+                { field: 'OD63', title: '打款商家金额', width: 100, align: 'center' },
+                { field: 'OD64', title: '含应开票给个人的个人红包', width: 100, align: 'center' },
+                { field: 'OD65', title: '是否信用购', width: 100, align: 'center' },
+                { field: 'OD66', title: '体验期结束时间', width: 100, align: 'center' },
+                { field: 'OD67', title: '前N有礼', width: 100, align: 'center' },
+                { field: 'OD68', title: '配送类型', width: 100, align: 'center' },
+                { field: 'OD69', title: '主订单编号', width: 100, align: 'center' },
+                { field: 'Description', title: '备注', width: 300, align: 'center' }
+            ]]
+        });
+
+        $("#btn_search").click(function () {
+            var queryJson = {
+                ComCode: $("#txt_Code").val(),
+                ComName: $('#txt_Name').val(),
+                TstartTime: $("#TstartTime").val(),
+                TendTime: $("#TendTime").val() 
+            }
+            $('#dg').datagrid('load', { queryJson: JSON.stringify(queryJson) });
+        });
+    }
+
+
+    function btn_input() {
+        $.modalOpen({
+            id: "Form",
+            title: "导入数据",
+            url: "/Api/ExcelManage/Import?table=ManuallyTradeInfo",
+            width: "700px",
+            height: "520px",
+            callBack: function (iframeId) {
+                top.frames[iframeId].submitForm();
+            }
+        }); 
+    }
+</script>
+
+
+
+<div class="gridPanel" style="height:100%;">
+    <div id="toolbar" style="padding:2px 5px;">
+        
+        <div class="dcui-search-area">
+            开始：
+            <input id="TstartTime" class="easyui-datebox" labelPosition="top" style="width: 120px;padding-left:15px;">
+            结束：
+            <input id="TendTime" class="easyui-datebox" labelPosition="top" style="width: 120px;padding-left:15px;">
+            订单编号:
+            <input class="easyui-textbox" style="width:110px" id="txt_Code" placeholder="请输入要查询订单编号">
+            支付单号：
+            <input class="easyui-textbox" style="width:110px" id="txt_Name" placeholder="请输入要查询支付单号">
+            <a href="#" class="easyui-linkbutton" iconCls="icon-search" id="btn_search">查询</a>
+        </div>
+    </div>
+
+    <table id="dg" class="easyui-datagrid" style="width:100%;min-height:600px;height:100%;"></table>
+</div>
